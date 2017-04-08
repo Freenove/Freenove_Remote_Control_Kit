@@ -6,7 +6,7 @@ How to download
 
 Files
   The files for this product and their introduction are as follows:
-    Libraries       Libraries for Arduino sketches
+    Libraries       Library files for Arduino software
     Sketches        Sketches for Arduino projects
     Readme.txt      Instructions
     Tutorial.pdf    Tutorial
