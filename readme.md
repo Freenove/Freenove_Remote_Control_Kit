@@ -8,7 +8,7 @@ A remote control kit compatible with Arduino® IDE.
 
 ### Download
 
-Click the green "Clone or download" button, then click "Download ZIP" button in the pop-up window.  
+Click the green "Clone" button, then click "Download ZIP" button in the pop-up window.  
 Do NOT click the "Open in Desktop" button, it will lead you to install Github software.
 
 > If you meet any difficulties, please contact our technical team for help.
