@@ -1,14 +1,18 @@
 /*
  * Sketch     Remote
- * Platform   Freenove Remote Control Kit
+ * Platform   Freenove Remote Control (Compatible with Arduino/Genuino Uno)
  * Brief      This sketch is used to show how to use Freenove Remote Control.
- *            This sketch needs to be uploaded to the remote.
+ *            This sketch needs to be uploaded to the board of the remote.
  * Author     Ethan Pan @ Freenove (support@freenove.com)
- * Date       2017/4/8
+ * Date       2020/06/19
  * Copyright  Copyright © Freenove (http://www.freenove.com)
  * License    Creative Commons Attribution ShareAlike 3.0
  *            (http://creativecommons.org/licenses/by-sa/3.0/legalcode)
  * -----------------------------------------------------------------------------------------------*/
+
+#ifndef ARDUINO_AVR_UNO
+#error Wrong board. Please choose "Arduino/Genuino Uno"
+#endif
 
 // NRF24L01
 #include <SPI.h>
@@ -33,8 +37,8 @@ const int pot1Pin = A0,           // define POT1
 void setup() {
   // NRF24L01
   radio.begin();                      // initialize RF24
-  radio.setPALevel(RF24_PA_LOW);      // set power amplifier (PA) level
   radio.setDataRate(RF24_1MBPS);      // set data rate through the air
+  radio.setPALevel(RF24_PA_MAX);      // set power amplifier (PA) level
   radio.setRetries(0, 15);            // set the number and delay of retries
   radio.openWritingPipe(addresses);   // open a pipe for writing
   radio.openReadingPipe(1, addresses);// open a pipe for reading
@@ -49,8 +53,7 @@ void setup() {
   pinMode(led3Pin, OUTPUT);           // set led3Pin to output mode
 }
 
-void loop()
-{
+void loop() {
   // put the values of rocker, switch and potentiometer into the array
   dataWrite[0] = analogRead(pot1Pin);
   dataWrite[1] = analogRead(pot2Pin);
@@ -61,16 +64,19 @@ void loop()
   dataWrite[6] = digitalRead(s2Pin);
   dataWrite[7] = digitalRead(s3Pin);
 
+  // control time to write every 20ms
+  static unsigned long lastRf24WriteMillis = 0;
+  unsigned long millisNow = lastRf24WriteMillis;
+  while (millisNow - lastRf24WriteMillis < 20)
+    millisNow = millis();
+  lastRf24WriteMillis = millisNow;
+  digitalWrite(led3Pin, LOW);
+
   // write radio data
-  if (radio.write(dataWrite, sizeof(dataWrite)))
-  {
+  if (radio.writeFast(dataWrite, sizeof(dataWrite)))
     digitalWrite(led3Pin, HIGH);
-    delay(20);
-    digitalWrite(led3Pin, LOW);
-  }
 
   // make LED emit different brightness of light according to analog of potentiometer
   analogWrite(led1Pin, map(dataWrite[0], 0, 1023, 0, 255));
   analogWrite(led2Pin, map(dataWrite[1], 0, 1023, 0, 255));
 }
-

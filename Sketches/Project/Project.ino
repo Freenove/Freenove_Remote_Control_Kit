@@ -1,14 +1,18 @@
 /*
  * Sketch     Project
- * Platform   Arduino Based Products/Projects
+ * Platform   Products/Projects (Compatible with Arduino/Genuino Uno)
  * Brief      This sketch is used to show how to use Freenove Remote Control.
- *            This sketch needs to be uploaded to the Arduino based products/projects.
+ *            This sketch needs to be uploaded to the board of your products/projects.
  * Author     Ethan Pan @ Freenove (support@freenove.com)
- * Date       2017/4/8
+ * Date       2020/06/19
  * Copyright  Copyright © Freenove (http://www.freenove.com)
  * License    Creative Commons Attribution ShareAlike 3.0
  *            (http://creativecommons.org/licenses/by-sa/3.0/legalcode)
  * -----------------------------------------------------------------------------------------------*/
+
+#ifndef ARDUINO_AVR_UNO
+#error Wrong board. Please choose "Arduino/Genuino Uno"
+#endif
 
 // NRF24L01
 #include <SPI.h>
@@ -21,23 +25,23 @@ int dataRead[8];                  // define array used to save the read data
 void setup() {
   // NRF24L01
   radio.begin();                      // initialize RF24
-  radio.setPALevel(RF24_PA_LOW);      // set power amplifier (PA) level
   radio.setDataRate(RF24_1MBPS);      // set data rate through the air
+  radio.setPALevel(RF24_PA_MAX);      // set power amplifier (PA) level
   radio.setRetries(0, 15);            // set the number and delay of retries
   radio.openWritingPipe(addresses);   // open a pipe for writing
   radio.openReadingPipe(1, addresses);// open a pipe for reading
   radio.startListening();             // start monitoringtart listening on the pipes opened
   // serial port
-  Serial.begin(115200);              // initialize serial
+  Serial.begin(115200);               // initialize serial
 }
 
-void loop()
-{
+void loop() {
   // read radio data
-  if ( radio.available()) {             // if receive the data
+  if (radio.available()) {             // if received data
     radio.read(dataRead, sizeof(dataRead));   // read data
-    showInfo();
+    showInfo();                        // show data
   }
+  delay(2);
 }
 
 void showInfo() {
@@ -54,4 +58,3 @@ void showInfo() {
 
   Serial.println("");
 }
-
