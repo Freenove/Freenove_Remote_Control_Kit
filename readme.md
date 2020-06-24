@@ -1,13 +1,14 @@
 ## Freenove Remote Control Kit
 
 A remote control kit compatible with Arduino® IDE.
+
 > Arduino® is a trademark of Arduino LLC (https://www.arduino.cc/).
 
 <img src='Pictures/Product.png' width='50%'/>
 
 ### Download
 
-Click the green "Clone or download" button, then click "Download ZIP" button in the pop-up window.
+Click the green "Clone or download" button, then click "Download ZIP" button in the pop-up window.  
 Do NOT click the "Open in Desktop" button, it will lead you to install Github software.
 
 > If you meet any difficulties, please contact our technical team for help.
@@ -61,8 +62,7 @@ http://www.freenove.com
 
 ### Copyright
 
-All the files in this repository are released under [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/).
-You can find a copy of the license in this repository.
+All the files in this repository are released under [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/). You can find a copy of the license in this repository.
 
 ![markdown](https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png)
 
@@ -72,6 +72,6 @@ Freenove® brand and logo are trademarks of Freenove Creative Technology Co., Lt
 
 Other registered trademarks and their owners appearing in this repository:
 
-Arduino® is a trademark of Arduino LLC (https://www.arduino.cc/).
-Raspberry Pi® is a trademark of Raspberry Pi Foundation (https://www.raspberrypi.org/).
-micro:bit® is a trademark of Micro:bit Educational Foundation (https://www.microbit.org/).
+Arduino® is a trademark of Arduino LLC (https://www.arduino.cc/).  
+Raspberry Pi® is a trademark of Raspberry Pi Foundation (https://www.raspberrypi.org/).  
+micro:bit® is a trademark of Micro:bit Educational Foundation (https://www.microbit.org/).  
