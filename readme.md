@@ -3,7 +3,7 @@
 A remote control kit compatible with Arduino® IDE.
 > Arduino® is a trademark of Arduino LLC (https://www.arduino.cc/).
 
-<img src='Pictures/Product.png' width='50%'/>
+<img src='Pictures/Product.png' width='30%'/>
 
 ### Download
 
