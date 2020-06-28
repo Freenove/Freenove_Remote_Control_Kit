@@ -51,10 +51,11 @@ Freenove provides open source electronic products and services.
 
 Freenove is committed to helping customers learn programming and electronic knowledge, quickly implement product prototypes, realize their creativity and launch innovative products. Our services include:
 
-* Kits of robots, smart cars and drones
-* Kits for learning Arduino®, Raspberry Pi® and micro:bit®
-* Electronic components and modules, tools
-* Product customization service
+* Kits for learning programming and electronics
+* Kits compatible with Arduino®, Raspberry Pi®, micro:bit®, etc.
+* Kits for robots, smart cars, drones, etc.
+* Components, modules and tools
+* Design and customization
 
 To learn more about us or get our latest information, please visit our website:
 
